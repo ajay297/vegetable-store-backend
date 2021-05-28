@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 
 
 const cors = require("cors");
+app.use(cors());
 // const mongoURI = 'mongodb+srv://Mohan:Mohan@1804@cluster0.qcwbo.mongodb.net/vegetable?retryWrites=true&w=majority';
 
 // mongoose.connect(mongoURI, { useNewUrlParser: true }, { useUnifiedTopology: true });
@@ -12,7 +13,7 @@ const cors = require("cors");
 var sabziRoute = require('./routes/sabzi');
 var userRoute = require('./routes/user');
 
-app.use(cors());
+
 app.use(methodOverride('_method'));
 app.use(express.static("public"));
 app.use(express.urlencoded());
