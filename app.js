@@ -5,9 +5,9 @@ const methodOverride = require('method-override');
 
 
 const cors = require("cors");
-const mongoURI = 'mongodb+srv://Mohan:Mohan@1804@cluster0.qcwbo.mongodb.net/vegetable?retryWrites=true&w=majority';
+// const mongoURI = 'mongodb+srv://Mohan:Mohan@1804@cluster0.qcwbo.mongodb.net/vegetable?retryWrites=true&w=majority';
 
-mongoose.connect(mongoURI, { useNewUrlParser: true }, { useUnifiedTopology: true });
+// mongoose.connect(mongoURI, { useNewUrlParser: true }, { useUnifiedTopology: true });
 
 var sabziRoute = require('./routes/sabzi');
 var userRoute = require('./routes/user');
