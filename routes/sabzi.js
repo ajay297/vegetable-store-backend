@@ -5,15 +5,8 @@ var app = express.Router();
 var VerifyToken = require("../middleware/verify");
 var store = require("../models/dbitem");
 var customer = require("../models/userdata");
-var fileupload = require("express-fileupload");
 var cloudinary = require("cloudinary");
 
-
-app.use(
-  fileupload({
-    useTempFiles: true,
-  })
-);
 
 cloudinary.config({
   cloud_name: "mehta1234",
