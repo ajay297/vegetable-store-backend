@@ -1,8 +1,6 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var app = express();
-const multer = require('multer');
-const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
 
 
