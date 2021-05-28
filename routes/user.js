@@ -7,7 +7,7 @@ var app = express.Router();
 var bcrypt = require("bcryptjs");
 var saltRounds = 10;
 var config = "qwertyuiopasdfghjklzxcvbnm1234567890";
-var VerifyToken = require('../middleware/verify');
+var VerifyToken = require('../Middleware/verify');
 
 app.get("/", function (req, res) {
   customer.find({}, function (err, found) {
