@@ -1,14 +1,25 @@
 const mongoose = require("mongoose");
+const ProductSchema = require("./dbitem");
 
 
-const ProductSchema = new mongoose.Schema({
-    name: String,
-    price: Number,
-    qty: Number
-})
+// const ProductSchema = new mongoose.Schema({
+//     name: String,
+//     price: Number,
+//     qty: Number
+// })
 
 const OrderSchema = new mongoose.Schema({
-    product: [ProductSchema],
+    product: [
+        {
+            ID: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: ProductSchema
+            },
+            qty: {
+                type: Number
+            }
+        }
+    ],
     receiver_name: { type: String },
     address: { type: String },
     tracking_no: { type: String },

@@ -86,21 +86,29 @@ app.delete("/:id", VerifyToken.verifyToken, function (req, res) {
     } else res.send("U dont have permission to do this");
   });
 });
-
+// [{_id:"",qty:10},{_id:"",qty:10}]
 app.post("/order/:id", function (req, res) {
   const item = req.body.product;
   const order = new Order();
-  order.product = item;
-  order.receiver_name = req.body.firstName + " " + req.body.lastName;
-  order.address = req.body.address;
-  order.tracking_no = req.body.tracking_no;
-  order.logistic_company = req.body.logistic_company;
-  order.shipping_cost = req.body.shipping_cost;
-  order.created_at = req.body.created_at;
-  order.dispatched_at = req.body.dispatched_at;
-  order.status = req.body.status;
-  order.zip = req.body.zip;
-  order.city = req.body.city;
+  // const itemId = [];
+  // const qty = [];
+  // item.forEach(ele => {
+  //   itemId.push(ele._id);
+  //   qty.push(ele.qty);
+  // })
+  item.forEach(ele => {
+    order.product.push({ _id: ele._id, qty: ele.qty })
+  });
+  // order.receiver_name = req.body.firstName + " " + req.body.lastName;
+  // order.address = req.body.address;
+  // order.tracking_no = req.body.tracking_no;
+  // order.logistic_company = req.body.logistic_company;
+  // order.shipping_cost = req.body.shipping_cost;
+  // order.created_at = req.body.created_at;
+  // order.dispatched_at = req.body.dispatched_at;
+  // order.status = req.body.status;
+  // order.zip = req.body.zip;
+  // order.city = req.body.city;
   customer.findById(req.params.id, function (err, payagaya) {
     if (err) res.send(err);
     else {

@@ -97,9 +97,19 @@ app.post("/contact", VerifyToken.verifyToken, function (req, res) {
   })
 })
 
+const Order = require('../models/orders');
+const store = require('../models/dbitem');
+
 app.get("/:customernaam", function (req, res) {
   console.log("YEAH");
-  customer.findById(req.params.customernaam).populate("orders").exec(function (err, payagaya) {
+  customer.findById(req.params.customernaam).populate({
+    path: "orders",
+    model: Order,
+    populate: {
+      path: "product._id",
+      model: store
+    }
+  }).exec(function (err, payagaya) {
     if (err)
       res.status(400).send(err);
     else if (payagaya.length === 0)
